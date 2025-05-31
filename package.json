@@ -22,6 +22,7 @@
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.0",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "lanceros-landing": "file:",
     "rxjs": "~7.8.0",

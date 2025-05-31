@@ -6,7 +6,8 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -45,8 +46,7 @@ app.use((req, res, next) => {
       providers: [
         {
           provide: 'STREAM_URL',
-          useValue:
-            process.env['STREAM_URL'],
+          useValue: process.env['STREAM_URL'],
         },
       ],
     })

@@ -1,0 +1,72 @@
+<!-- ==========================================================================
+     Sección "En Vivo"
+     Reproductor interactivo para escuchar la emisora en tiempo real
+     ========================================================================== -->
+
+<section id="live" class="player">
+  <!-- Título principal de la sección -->
+  <h2>Escúchanos en Vivo</h2>
+
+  <div class="custom-player">
+    <!-- Logotipo de la emisora -->
+    <img
+      src="LS94_1.png"
+      alt="Logo de Lanceros Stereo"
+      class="hero-logo"
+      loading="lazy"
+    />
+
+    <!-- Botón para reproducir o pausar el stream -->
+    <button
+      class="play-btn"
+      type="button"
+      [ngClass]="{
+        playing: (playerState.isPlaying$ | async),
+        paused: !(playerState.isPlaying$ | async)
+      }"
+      (click)="togglePlayback()"
+      aria-label="Control de reproducción"
+    >
+      <!-- Texto dinámico: ▶ Reproducir -->
+      <span *ngIf="!(playerState.isPlaying$ | async)">▶ Reproducir</span>
+      <!-- Texto dinámico: ⏸ Pausar -->
+      <span *ngIf="playerState.isPlaying$ | async">⏸ Pausar</span>
+    </button>
+
+    <!-- Mensaje de estado: escuchando o en pausa -->
+    <p class="status">
+      {{ (playerState.isPlaying$ | async) ? '🔊 Transmitiendo desde Tuta,
+      Boyacá' : '⏸ En pausa' }}
+    </p>
+
+    <!-- Control de volumen visible solo si está reproduciendo (con `getter`) -->
+    <div class="volume-control" *ngIf="playerState.isPlaying">
+      <label for="volumeSlider">🔊 Volumen</label>
+      <input
+        id="volumeSlider"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        [value]="volume"
+        (input)="handleVolumeChange($event)"
+      />
+    </div>
+
+    <!-- Visualización de ondas animadas (sólo decorativa, accesibilidad desactivada) -->
+    <div
+      class="wave-container"
+      *ngIf="playerState.isPlaying"
+      aria-hidden="true"
+    >
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+
+    <!-- Elemento de audio HTML con referencia para control JS -->
+    <audio #audioRef [src]="streamUrl"></audio>
+  </div>
+</section>

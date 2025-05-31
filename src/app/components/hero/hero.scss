@@ -1,0 +1,97 @@
+@use "../../../variables" as *;
+
+/* ==========================================================================
+   Sección Hero (pantalla de bienvenida)
+   Estilo visual llamativo con fondo degradado, logotipo, mensaje y botón CTA
+   ========================================================================== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  color: $color-white;
+  padding: $section-padding;
+
+  /* === Logotipo principal === */
+  .hero-logo {
+    max-width: 180px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3)); // resalta sobre fondo
+  }
+
+  /* === Título principal === */
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: $color-white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); // mejora legibilidad
+  }
+
+  /* === Lema o mensaje de bienvenida === */
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    color: $color-white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  /* === Botón de llamada a la acción (CTA) === */
+  .btn {
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px; // estilo pill
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      color: $color-secondary;
+      background-color: lighten($color-primary, 5%);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* === Ajustes responsive para pantallas medianas (tablets) === */
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+    }
+  }
+
+  /* === Ajustes responsive para pantallas pequeñas (móviles) === */
+  @media screen and (max-width: 480px) {
+    .hero-logo {
+      max-width: 140px;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}

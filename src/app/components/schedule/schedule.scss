@@ -1,0 +1,106 @@
+@use "../../../variables" as *;
+
+/* ==========================================================================
+   Sección "Programación"
+   Estilos para la parrilla radial: bloques diarios y programas especiales
+   ========================================================================== */
+
+.schedule {
+  background-color: $color-bg-light;
+  color: $color-primary;
+  padding: $section-padding;
+  text-align: center;
+
+  /* === Título principal === */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: $color-secondary;
+      margin: 0.5rem auto 1.5rem;
+      border-radius: 2px;
+    }
+  }
+
+  /* === Grid que organiza bloques por días/temas === */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // Dos columnas en escritorio
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  /* === Bloque diario o especial === */
+  .block {
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid $color-secondary; // Línea decorativa inferior
+    }
+
+    /* === Programa individual === */
+    .program {
+      margin-bottom: 1.5rem;
+      padding-left: 10px;
+      border-left: 4px solid $color-accent; // Barra vertical de color
+
+      h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: $color-primary;
+      }
+
+      p {
+        font-size: 0.95rem;
+        margin: 0;
+        color: $color-gray-dark;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive - Móviles y tablets
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  .schedule {
+    h2 {
+      font-size: 2rem;
+    }
+
+    .schedule-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .block {
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .program {
+        padding-left: 8px;
+
+        h4 {
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

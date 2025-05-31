@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+@use "variables" as *;
+
+/* ==========================================================================
+   Estilos globales para Lanceros Stereo Landing Page
+   Incluye: Reset, tipografía base, colores, botones y estructura general
+   ========================================================================== */
+
+/* ===== Reset general y comportamiento base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ===== Configuración del documento ===== */
+html,
+body {
+  font-family: $font-base; // Fuente principal definida en variables
+  font-size: 16px; // Tamaño base para escalabilidad rem
+  line-height: 1.6; // Altura de línea legible
+  background-color: $color-bg-light; // Color de fondo claro
+  color: $color-primary; // Texto principal
+  overflow-x: hidden; // Previene scroll horizontal
+}
+
+/* ===== Enlaces ===== */
+a {
+  text-decoration: none;
+  color: inherit; // Hereda el color del texto del contenedor
+  transition: color 0.3s ease, border-bottom 0.3s ease; // Transición suave
+}
+
+/* ===== Listas ===== */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== Imágenes responsivas ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Secciones ===== */
+section {
+  padding: $section-padding; // Espaciado vertical de sección
+  scroll-margin-top: $scroll-offset; // Offset para scroll anclado
+}
+
+/* ===== Encabezados ===== */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: $color-primary;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== Párrafos ===== */
+p {
+  margin-bottom: 1rem;
+  color: $color-gray-dark;
+}
+
+/* ===== Botones base ===== */
+button {
+  cursor: pointer;
+  border: none;
+  padding: $btn-padding;
+  font-weight: 600;
+  border-radius: $btn-radius;
+  transition: background 0.3s ease;
+}
+
+/* ===== Clase utilitaria para botones personalizados ===== */
+.btn {
+  background-color: $color-accent;
+  color: $color-primary;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $color-accent-light;
+    color: $color-secondary;
+  }
+}

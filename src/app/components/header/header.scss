@@ -1,0 +1,121 @@
+@use "../../../variables" as *;
+@use "sass:color";
+
+/* ==========================================================================
+   Estilos para el componente <app-header>
+   Barra de navegación fija con logotipo, menú y control de audio
+   ========================================================================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* === Logotipo de Lanceros Stereo === */
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* === Menú de navegación === */
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    li {
+      /* === Enlaces de navegación === */
+      a {
+        color: $color-white;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0%;
+          height: 2px;
+          bottom: -4px;
+          left: 0;
+          background-color: $color-accent;
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          color: $color-accent;
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+
+      /* === Botón de control de audio (play/pausa) === */
+      .audio-control {
+        background-color: $color-accent;
+        border: none;
+        color: $color-primary;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: $btn-radius;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+          background-color: $color-secondary;
+          color: $color-white;
+        }
+
+        /* Estado: Reproduciendo */
+        &.playing {
+          background-color: #28a745; // Verde éxito
+
+          color: #ffffff;
+
+          &:hover {
+            background-color: color.adjust(#28a745, $lightness: -10%);
+          }
+        }
+
+        /* Estado: Pausado */
+        &.paused {
+          background-color: #e74c3c; // Rojo alerta
+          color: #ffffff;
+
+          &:hover {
+            background-color: color.adjust(#e74c3c, $lightness: -10%);
+          }
+        }
+      }
+    }
+  }
+
+  /* === Comportamiento responsive (pantallas pequeñas) === */
+  @media screen and (max-width: 768px) {
+    ul {
+      gap: 0.5rem;
+
+      li {
+        display: none;
+
+        &:last-child {
+          display: block; // Solo se muestra el botón de audio en móviles
+        }
+      }
+    }
+  }
+}

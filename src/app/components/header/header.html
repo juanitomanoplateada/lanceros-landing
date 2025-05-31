@@ -1,0 +1,38 @@
+<!-- ==========================================================================
+     Navegación principal (navbar)
+     Contiene logotipo, enlaces ancla a secciones del sitio y control de audio
+     ========================================================================== -->
+
+<nav>
+  <!-- Logotipo de la emisora -->
+  <div class="logo">Lanceros Stereo</div>
+
+  <!-- Lista de enlaces de navegación -->
+  <ul>
+    <!-- Enlaces internos a secciones de la landing -->
+    <li><a href="#home">Inicio</a></li>
+    <li><a href="#about">Quiénes Somos</a></li>
+    <li><a href="#schedule">Programación</a></li>
+    <li><a href="#live">En Vivo</a></li>
+    <li><a href="#contact">Contáctanos</a></li>
+
+    <!-- Botón de control de reproducción global (play/pausa) -->
+    <li>
+      <button
+        class="audio-control"
+        [ngClass]="{
+          playing: (playerState.isPlaying$ | async),
+          paused: !(playerState.isPlaying$ | async)
+        }"
+        (click)="togglePlayback()"
+        aria-label="Toggle playback"
+      >
+        <!-- Ícono de reproducir si está pausado -->
+        <span *ngIf="!(playerState.isPlaying$ | async)">▶</span>
+
+        <!-- Ícono de pausa si está reproduciendo -->
+        <span *ngIf="playerState.isPlaying$ | async">⏸</span>
+      </button>
+    </li>
+  </ul>
+</nav>

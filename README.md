@@ -93,7 +93,7 @@ Este sitio está configurado para desplegarse automáticamente en [Vercel](https
 
 ¿Tienes alguna sugerencia o mejora? ¡Contribuciones y pull requests son bienvenidos!
 
-📧 contacto@lancerostereo.com  
+📧 radiolanceros@hotmail.com  
 📻 [Lanceros Stereo 94.1 FM](https://lancerostereofm.vercel.app)
 
 ---

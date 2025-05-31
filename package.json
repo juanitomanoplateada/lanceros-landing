@@ -10,6 +10,9 @@
     "serve:ssr:lanceros-landing": "node dist/lanceros-landing/server/server.mjs"
   },
   "private": true,
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "dependencies": {
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",

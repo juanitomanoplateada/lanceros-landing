@@ -1,4 +1,10 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  Inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlayerStateService } from '../../services/player-state';
 
@@ -19,7 +25,7 @@ export class PlayerComponent implements AfterViewInit {
   /**
    * URL del stream de audio en vivo
    */
-  streamUrl: string = 'http://link.zeno.fm/jz1bfxan45kuv';
+  streamUrl: string;
 
   /**
    * Valor actual del volumen (0.0 - 1.0)
@@ -29,8 +35,12 @@ export class PlayerComponent implements AfterViewInit {
   /**
    * Inyecta el servicio de estado del reproductor
    */
-  constructor(public playerState: PlayerStateService) {}
-
+  constructor(
+    public playerState: PlayerStateService,
+    @Inject('STREAM_URL') streamUrl: string
+  ) {
+    this.streamUrl = streamUrl;
+  }
   /**
    * Después de que la vista se ha inicializado,
    * se enlaza el elemento de audio al servicio para control global

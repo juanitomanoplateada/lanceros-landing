@@ -13,6 +13,7 @@
       src="LS94_1.png"
       alt="Logo de Lanceros Stereo"
       class="hero-logo"
+      [ngClass]="{ pulsing: (playerState.isPlaying$ | async) }"
       loading="lazy"
     />
 

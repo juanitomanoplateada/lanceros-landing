@@ -7,7 +7,7 @@
    ========================================================================== */
 
 .player {
-  background-color: #ECECEC;
+  background-color: #ececec;
   text-align: center;
   padding: $section-padding;
 
@@ -44,6 +44,11 @@
       margin: 0 auto 1.5rem;
       max-width: 180px;
       filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+
+      &.pulsing {
+        animation: pulse 1.5s infinite ease-in-out;
+      }
     }
 
     /* === Botón de reproducción / pausa === */
@@ -211,5 +216,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

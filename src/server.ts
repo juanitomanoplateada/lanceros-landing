@@ -6,6 +6,7 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import 'dotenv/config';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -32,7 +33,7 @@ app.use(
     maxAge: '1y',
     index: false,
     redirect: false,
-  }),
+  })
 );
 
 /**
@@ -40,9 +41,17 @@ app.use(
  */
 app.use((req, res, next) => {
   angularApp
-    .handle(req)
+    .handle(req, {
+      providers: [
+        {
+          provide: 'STREAM_URL',
+          useValue:
+            process.env['STREAM_URL'],
+        },
+      ],
+    })
     .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
+      response ? writeResponseToNodeResponse(response, res) : next()
     )
     .catch(next);
 });

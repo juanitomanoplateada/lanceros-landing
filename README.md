@@ -1,59 +1,104 @@
-# LancerosLanding
+# 🎙️ Lanceros Stereo 94.1 FM - Landing Page
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
+Bienvenido al repositorio oficial de la landing page de **Lanceros Stereo 94.1 FM**, una emisora comunitaria de Tuta, Boyacá que promueve la cultura, la educación y la alegría de nuestra región.
 
-## Development server
+🌐 Sitio web en producción: [https://lancerostereofm.vercel.app](https://lancerostereofm.vercel.app)
 
-To start a local development server, run:
+📁 Repositorio GitHub: [https://github.com/juanitomanoplateada/lanceros-landing](https://github.com/juanitomanoplateada/lanceros-landing)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tecnologías Utilizadas
 
-## Code scaffolding
+- [Angular 17](https://angular.io/) (con SSR y zoneless rendering)
+- [SCSS](https://sass-lang.com/) para estilos personalizados
+- [TypeScript](https://www.typescriptlang.org/)
+- Canvas API para visualización de ondas de audio
+- Vercel para despliegue automático
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🚀 Características principales
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- ✅ **Reproductor en Vivo:** Escucha la emisora en tiempo real, con animación de ondas sincronizada al audio.
+- ✅ **Diseño Responsivo:** Optimizado para dispositivos móviles, tablets y escritorios.
+- ✅ **Secciones informativas:** Quiénes somos, Programación, Contacto y más.
+- ✅ **Despliegue automático en Vercel:** CI/CD para cada push a la rama principal.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## ▶️ Comenzar en local
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. Clona el repositorio:
 
 ```bash
-ng test
+git clone https://github.com/juanitomanoplateada/lanceros-landing.git
+cd lanceros-landing
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+2. Instala las dependencias:
 
 ```bash
-ng e2e
+npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Ejecuta la app en modo desarrollo:
 
-## Additional Resources
+```bash
+npm run dev
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+4. Para compilar y ver en SSR:
+
+```bash
+npm run build:ssr && npm run serve:ssr
+```
+
+---
+
+## 🌍 Variables de entorno
+
+El sitio reproduce el stream de audio desde una URL definida en el entorno.
+
+En el archivo `main.server.ts` o configuración SSR:
+
+```ts
+{
+  provide: 'STREAM_URL',
+  useValue: process.env['STREAM_URL'],
+}
+```
+
+Puedes definirla en `.env` o directamente en el entorno de Vercel:
+
+```
+STREAM_URL=http://link.zeno.fm/jz1bfxan45kuv
+```
+
+---
+
+## 📦 Despliegue
+
+Este sitio está configurado para desplegarse automáticamente en [Vercel](https://vercel.com/). Solo necesitas hacer push a la rama `main`.
+
+---
+
+## 📸 Vista previa
+
+![Vista previa del sitio](./src/assets/preview.jpg) <!-- Si agregas un preview -->
+
+---
+
+## 📬 Contacto
+
+¿Tienes alguna sugerencia o mejora? ¡Contribuciones y pull requests son bienvenidos!
+
+📧 contacto@lancerostereo.com  
+📻 [Lanceros Stereo 94.1 FM](https://lancerostereofm.vercel.app)
+
+---
+
+## 📝 Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+

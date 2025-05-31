@@ -1,19 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { App } from './app/app';
-import { config } from './app/app.config.server';
+import { appConfig } from './app/app.config';
 import { provideServerRendering } from '@angular/platform-server';
 
 const bootstrap = () =>
   bootstrapApplication(App, {
-    ...config,
-    providers: [
-      ...(config.providers || []),
-      provideServerRendering(),
-      {
-        provide: 'STREAM_URL',
-        useValue: process.env['STREAM_URL'],
-      },
-    ],
+    ...appConfig,
+    providers: [...(appConfig.providers || []), provideServerRendering()],
   });
 
 export default bootstrap;

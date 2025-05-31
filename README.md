@@ -85,7 +85,7 @@ Este sitio está configurado para desplegarse automáticamente en [Vercel](https
 
 ## 📸 Vista previa
 
-![Vista previa del sitio](./src/assets/preview.jpg) <!-- Si agregas un preview -->
+![Vista previa del sitio](./public/preview.jpg) <!-- Si agregas un preview -->
 
 ---
 
